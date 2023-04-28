@@ -1,0 +1,37 @@
+{
+  "name": "nb-docx-maker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf ./dist",
+    "dev": "rimraf **.docx && ts-node ./src",
+    "dev:nodemon": "rimraf **.docx && nodemon --watch ./src/ -e ts --exec ts-node ./src",
+    "build": "npm run clean && rollup --config rollup.config.ts --configPlugin typescript",
+    "build:tsc": "npm run clean && tsc --project tsconfig.json",
+    "link": "npm run build && npm link"
+  },
+  "keywords": [],
+  "author": "ichigo",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/node": "^18.16.0",
+    "nodemon": "^2.0.22",
+    "rimraf": "^5.0.0",
+    "rollup": "^3.21.0",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "docx": "^8.0.3"
+  }
+}
