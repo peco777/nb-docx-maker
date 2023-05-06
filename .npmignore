@@ -1,5 +1,9 @@
 node_modules
 
 src
+demo
+
+rollup.config.ts
+tsconfig.json
 
 *.docx

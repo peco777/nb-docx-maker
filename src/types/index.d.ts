@@ -1,3 +1,9 @@
+declare function exportBuffer(
+  params: ParagraphItem[]
+): Promise<Buffer> | Promise<Blob> | null;
+
+export { exportBuffer };
+
 type ParagraphType = "text" | "table" | "image" | "heading";
 
 type Heading = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

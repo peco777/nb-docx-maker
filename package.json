@@ -2,6 +2,7 @@
   "name": "nb-docx-maker",
   "version": "1.0.2",
   "description": "",
+  "type": "module",
   "main": "./build/index.cjs",
   "module": "./build/index.mjs",
   "types": "./build/index.d.ts",
@@ -17,7 +18,7 @@
     "dev": "rimraf **.docx && ts-node ./src",
     "dev:nodemon": "rimraf **.docx && nodemon --watch ./src/ -e ts --exec ts-node ./src",
     "build": "npm run clean && rollup --config rollup.config.ts --configPlugin typescript",
-    "demo": "ts-node ./demo",
+    "demo": "ts-node ./demo/index",
     "build:demo": "npm run build && npm run demo"
   },
   "keywords": [],
