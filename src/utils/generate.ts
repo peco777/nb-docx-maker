@@ -7,7 +7,16 @@ import {
   TextRun,
   HeadingLevel,
 } from "docx";
-import { base64DecToArr } from "./utils";
+
+import type {
+  TextParagraphItem,
+  TableParagraphItem,
+  ImageParagraphItem,
+  HeadingParagraphItem,
+  ParagraphItem,
+} from "@type/index";
+
+import { base64DecToArr } from "@util/base64";
 
 function parseText(item: TextParagraphItem) {
   if (item.children?.length) {

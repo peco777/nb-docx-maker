@@ -1,16 +1,20 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
-  "include": [
-    "src/**/*",
-    "types/**/*",
-    "rollup.config.ts"
-  ],
+  "include": ["src/**/*", "rollup.config.ts"],
   "compilerOptions": {
+    "module": "esnext",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "rootDir": "." /* Specify the root folder within your source include. */,
-    "outDir": "./dist" /* Specify an output folder for all emitted files. */,
-    "declaration": true,
-    "declarationDir": "./dist/types",
+    "outDir": "./build" /* Specify an output folder for all emitted files. */,
+    // "declaration": true,
+    // "declarationDir": "./build/types",
+    "target": "es2020",
+    "baseUrl": "./src",
+    "paths": {
+      "@util/*": ["./utils/*"],
+      "@type/*": ["./types/*"]
+    }
   },
   "ts-node": {
     "files": true

@@ -1,19 +1,25 @@
 import { defineConfig } from "rollup";
 import typescript from "@rollup/plugin-typescript";
+import dts from "rollup-plugin-dts";
 
-const libName = "index";
-
-export default defineConfig({
-  input: "src/index.ts",
-  output: [
-    {
-      file: `dist/${libName}.cjs.js`,
-      format: "cjs",
-    },
-    {
-      file: `dist/${libName}.es.js`,
-      format: "es",
-    },
-  ],
-  plugins: [typescript()],
-});
+export default defineConfig([
+  {
+    input: "./src/index.ts",
+    output: [
+      {
+        file: "./build/index.cjs",
+        format: "cjs",
+      },
+      {
+        file: "./build/index.mjs",
+        format: "es",
+      },
+    ],
+    plugins: [typescript()],
+  },
+  {
+    input: "./src/types/index.d.ts",
+    output: [{ file: "./build/index.d.ts", format: "es" }],
+    plugins: [dts()],
+  },
+]);

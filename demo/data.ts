@@ -1,4 +1,6 @@
-const mockParams = [
+import { ParagraphItem } from "../build/index";
+
+const mockParams: ParagraphItem[] = [
   {
     type: "heading",
     size: "h3",

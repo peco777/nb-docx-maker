@@ -1,7 +1,11 @@
 import * as fs from "fs";
-import { exportBuffer } from "../dist/index.cjs";
+import { exportBuffer } from "../build/index.cjs";
 import mockParams from "./data";
 
-exportBuffer(mockParams)?.then((buffer) => {
-  fs.writeFileSync("demo/hello.docx", buffer as Buffer);
-});
+const result = exportBuffer(mockParams);
+
+if (result) {
+  result.then((buffer: Buffer | Blob) => {
+    fs.writeFileSync("demo/hello.docx", buffer as Buffer);
+  });
+}

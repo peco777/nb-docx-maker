@@ -1,7 +1,7 @@
-// import * as fs from "fs";
 import { Document, Packer } from "docx";
 
-import { parseJsonToOption } from "./generate";
+import { parseJsonToOption } from "@util/generate";
+import type { ParagraphItem } from "@type/index";
 
 const exportBuffer = (params: ParagraphItem[]) => {
   const option = parseJsonToOption(params);
@@ -12,6 +12,7 @@ const exportBuffer = (params: ParagraphItem[]) => {
 
   // is browser runtime
   if (typeof window !== "undefined" && typeof window.document !== "undefined") {
+    console.log("is browser runtime");
     return Packer.toBlob(doc);
   }
   // is node runtime
@@ -20,6 +21,7 @@ const exportBuffer = (params: ParagraphItem[]) => {
     process.versions != null &&
     process.versions.node != null
   ) {
+    console.log("is node runtime");
     return Packer.toBuffer(doc);
   }
 };

@@ -2,16 +2,23 @@
   "name": "nb-docx-maker",
   "version": "1.0.1",
   "description": "",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
+  "main": "./build/index.cjs",
+  "module": "./build/index.mjs",
+  "types": "./build/index.d.ts",
+  "exports": {
+    "require": "./build/index.cjs",
+    "import": "./build/index.mjs",
+    "types": "./build/index.d.ts"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf ./dist",
+    "link": "npm run build && npm link",
+    "clean": "rimraf ./build",
     "dev": "rimraf **.docx && ts-node ./src",
     "dev:nodemon": "rimraf **.docx && nodemon --watch ./src/ -e ts --exec ts-node ./src",
     "build": "npm run clean && rollup --config rollup.config.ts --configPlugin typescript",
-    "build:tsc": "npm run clean && tsc --project tsconfig.json",
-    "link": "npm run build && npm link"
+    "demo": "ts-node ./demo",
+    "build:demo": "npm run build && npm run demo"
   },
   "keywords": [],
   "author": "ichigo",
@@ -27,6 +34,7 @@
     "nodemon": "^2.0.22",
     "rimraf": "^5.0.0",
     "rollup": "^3.21.0",
+    "rollup-plugin-dts": "^5.3.0",
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
     "typescript": "^5.0.4"
