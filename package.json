@@ -2,6 +2,10 @@
   "name": "nb-docx-maker",
   "version": "1.0.2",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peco777/nb-docx-maker.git"
+  },
   "type": "module",
   "main": "./build/index.cjs",
   "module": "./build/index.mjs",
